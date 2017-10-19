@@ -1,10 +1,11 @@
-// DOUBLE STACK
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
 
-struct DoubleStack {
-  int top;
-  double stack[256];
-};
-typedef struct DoubleStack DoubleStack;
+#include "stack.h"
+
+// DOUBLE STACK
 
 void d_init(DoubleStack *stos) {
   stos->top = 0;
@@ -30,12 +31,6 @@ int d_size(DoubleStack* stos) {
 
 
 // CHAR STACK
-
-struct CharStack {
-  int top;
-  char stack[1024];
-};
-typedef struct CharStack CharStack;
 
 void c_init(CharStack *stos) {
   stos->top = 0;
@@ -69,12 +64,6 @@ int c_size(CharStack* stos) {
 
 
 // STRING STACK
-
-struct StringStack {
-  int top;
-  char* stack[1024];
-};
-typedef struct StringStack StringStack;
 
 void s_init(StringStack *stos) {
   stos->top = 0;

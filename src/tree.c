@@ -1,15 +1,9 @@
-struct Leaf {
-  char* name;
-  double value;
-  struct Leaf* left;
-  struct Leaf* right;
-};
-typedef struct Leaf Leaf;
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
 
-struct Tree {
-  Leaf* root;
-};
-typedef struct Tree Tree;
+#include "tree.h"
 
 void init_tree(Tree* tree) {
   tree->root = 0;

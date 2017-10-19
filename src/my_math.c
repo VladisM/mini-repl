@@ -1,3 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+#include "my_math.h"
+
 #define PI 3.14
 
 double to_radians(const double x) {

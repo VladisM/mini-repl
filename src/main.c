@@ -4,8 +4,7 @@
 #include <math.h>
 
 #include "stack.h"
-#include "hash-map.h"
-#include "math.h"
+#include "my_math.h"
 #include "tree.h"
 
 double infix(char* wejscie, Tree* tree);
@@ -27,7 +26,7 @@ void from_dec(int number, int base) {
   }
 }
 
-int int_len(number) {
+int int_len(int number) {
   if(number == 0) {
     return 1;
   }
