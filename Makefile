@@ -1,29 +1,30 @@
 PRG = repl
 BUILDDIR = build
 SRCDIR = src
+INCDIR = inc
 
 SRCS = $(shell find $(SRCDIR) -name '*.c')
 OBJS = $(addprefix $(BUILDDIR)/, $(notdir $(SRCS:%.c=%.o)))
 
 CC = gcc
-CFLAGS = -g -std=c99 -Wall -Iinc/
+CFLAGS = -g -std=c99 -Wall -I$(INCDIR)
 LDFLAGS = -lm
 
 .PNOHY: clean all start
 
 all: $(BUILDDIR)/$(PRG)
 
-$(BUILDDIR)/main.o: $(SRCDIR)/main.c
-	$(CC) -c $(CFLAGS) -o $@ $^
+$(BUILDDIR)/main.o: $(SRCDIR)/main.c $(INCDIR)/tree.h $(INCDIR)/my_math.h $(INCDIR)/stack.h
+	$(CC) -c $(CFLAGS) -o $@ $<
 	
-$(BUILDDIR)/tree.o: $(SRCDIR)/tree.c
-	$(CC) -c $(CFLAGS) -o $@ $^
+$(BUILDDIR)/tree.o: $(SRCDIR)/tree.c $(INCDIR)/tree.h
+	$(CC) -c $(CFLAGS) -o $@ $<
 	
-$(BUILDDIR)/my_math.o: $(SRCDIR)/my_math.c
-	$(CC) -c $(CFLAGS) -o $@ $^
+$(BUILDDIR)/my_math.o: $(SRCDIR)/my_math.c $(INCDIR)/my_math.h
+	$(CC) -c $(CFLAGS) -o $@ $<
 	
-$(BUILDDIR)/stack.o: $(SRCDIR)/stack.c
-	$(CC) -c $(CFLAGS) -o $@ $^
+$(BUILDDIR)/stack.o: $(SRCDIR)/stack.c $(INCDIR)/stack.h
+	$(CC) -c $(CFLAGS) -o $@ $<
 
 $(BUILDDIR):
 	mkdir -p $(BUILDDIR)
